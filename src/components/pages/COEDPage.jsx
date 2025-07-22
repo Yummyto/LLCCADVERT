@@ -9,14 +9,14 @@ gsap.registerPlugin(ScrollTrigger);
 const bentoData = [
     {
         id: "program",
-        image: "/img/COED-Pics/coed-1.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-1.jpg`,
         title: "Program Description",
         content:
             "The Bachelor of Secondary Education is a four-year program providing academic and clinical preparation for prospective teachers through courses in general education, professional education, and field study/practice teaching. The degree is awarded to students who complete English, Filipino, and MAPEH specializations, with practicum under education professionals. Graduates qualify for the Licensure Examination for Teachers (LET).",
     },
     {
         id: "objectives",
-        image: "/img/COED-Pics/coed-2.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-2.jpg`,
         title: "Objectives",
         content:
             "The BSED program aims to develop high school teachers in English, Filipino, and MAPEH with competencies to:",
@@ -36,28 +36,28 @@ const bentoData = [
     },
     {
         id: "philosophy",
-        image: "/img/COED-Pics/coed-3.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-3.jpg`,
         title: "Goals & Philosophy",
         content:
             "The College of Education sets benchmarks for teacher education, working towards its vision, mission, and goals with dedication and excellence.",
     },
     {
         id: "vision",
-        image: "/img/COED-Pics/coed-4.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-4.jpg`,
         title: "Vision",
         content:
             "To be a training ground for producing competent, quality, and ethical teachers with strong personal and professional attributes.",
     },
     {
         id: "mission",
-        image: "/img/COED-Pics/coed-5.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-5.jpg`,
         title: "Mission",
         content:
             "To provide academic and professional preparation for teachers with dedication and commitment, meeting standards of excellence in the profession.",
     },
     {
         id: "goals",
-        image: "/img/COED-Pics/coed-6.jpg",
+        image: `${import.meta.env.BASE_URL}img/COED-Pics/coed-6.jpg`,
         title: "Goals",
         list: [
             "Produce graduates ready for global market demands;",
@@ -116,9 +116,11 @@ const COEDPage = () => {
                 {/* Background image */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: "url('/img/EDUC-Building.jpg')" }}
+                    style={{
+                        backgroundImage: `url('${import.meta.env.BASE_URL}img/EDUC-Building.jpg')`,
+                    }}
                 />
-                {/* Strong angled blue gradient overlay - RIGHT SIDE */}
+                {/* Gradient overlay */}
                 <div
                     className="absolute inset-0"
                     style={{
@@ -130,7 +132,7 @@ const COEDPage = () => {
                 {/* Logo & Title */}
                 <div ref={heroRef} className="relative z-10 flex flex-col items-center">
                     <img
-                        src="/img/COED.png"
+                        src={`${import.meta.env.BASE_URL}img/COED.png`}
                         alt="COED Logo"
                         className="w-40 h-40 object-contain rounded-full border border-white/30 shadow mb-4"
                     />
@@ -152,7 +154,9 @@ const COEDPage = () => {
                     >
                         <div
                             className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-40 transition-opacity duration-300"
-                            style={{ backgroundImage: `url('${section.image}')` }}
+                            style={{
+                                backgroundImage: `url('${section.image}')`,
+                            }}
                         />
                         <div className="relative z-10 flex h-full flex-col justify-start space-y-4 p-5 backdrop-blur-sm">
                             <h1 className="text-2xl font-bold">{section.title}</h1>

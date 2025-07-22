@@ -9,34 +9,35 @@ gsap.registerPlugin(ScrollTrigger);
 const bentoData = [
     {
         id: "program",
-        image: "/img/IT-pics/it-1.jpg",
+        image: `${import.meta.env.BASE_URL}img/IT-pics/it-1.jpg`,
         title: "Program Description",
         content:
             "The Bachelor of Science in Industrial Technology is a four-year technology degree program with specialization in Computer Technology and Electronics Technology. Students are equipped with specialized technical competencies in industrial technology toward entrepreneurial capability and/or supervisory and management positions in industry. BSIT majors in Computer Technology gain profound knowledge and technical skills in tool, professional, and shop work subjects including basic electricity and electronics, digital electronics, computer systems software and hardware, networking, and programming. Students who complete the training requirements are advised to take TESDA National Examinations I & II. The degree is awarded to students who complete three academic years and 1,800 hours of OJT (Third Ladder of Bachelor of Science in Technology) and pass all required subjects in the six-semester curriculum.",
     },
     {
         id: "vision",
-        image: "/img/IT-pics/it-2.jpg",
+        image: `${import.meta.env.BASE_URL}img/IT-pics/it-2.jpg`,
         title: "Vision",
-        content: "To be a premier institution advancing scientific and technological excellence, empowering students with cutting-edge skills and innovation, and producing globally competitive graduates who contribute meaningfully to industry and society.",
+        content:
+            "To be a premier institution advancing scientific and technological excellence, empowering students with cutting-edge skills and innovation, and producing globally competitive graduates who contribute meaningfully to industry and society.",
     },
     {
         id: "mission",
-        image: "/img/IT-pics/it-3.jpg",
+        image: `${import.meta.env.BASE_URL}img/IT-pics/it-3.jpg`,
         title: "Mission",
         content:
             "To deliver high-quality, industry-relevant education in industrial technology, fostering advanced technical skills and entrepreneurial spirit, while ensuring our graduates are equipped to meet evolving market demands and technological advancements.",
     },
     {
         id: "philosophy",
-        image: "/img/IT-pics/it-4.jpg",
+        image: `${import.meta.env.BASE_URL}img/IT-pics/it-4.jpg`,
         title: "Philosophy",
         content:
             "To hone individuals with competencies in technological quality education and technical-level skills, enabling them to adapt to rapid technological advancements and contribute to the growth and progress of society.",
     },
     {
         id: "goals",
-        image: "/img/IT-pics/it-5.jpg",
+        image: `${import.meta.env.BASE_URL}img/IT-pics/it-5.jpg`,
         title: "Goals",
         content:
             "Equip students with specialized technical competencies in industrial technology occupations, preparing them for entrepreneurial ventures and supervisory or management positions in industry.",
@@ -48,7 +49,7 @@ const ITPage = () => {
     const heroRef = useRef(null);
     const bentoRef = useRef(null);
 
-    // ADD: secret click logic
+    // Secret click logic
     const [clickCount, setClickCount] = useState(0);
     const clickTimer = useRef(null);
 
@@ -63,7 +64,6 @@ const ITPage = () => {
             return newCount;
         });
 
-        // Reset count after 2 seconds
         if (clickTimer.current) clearTimeout(clickTimer.current);
         clickTimer.current = setTimeout(() => {
             setClickCount(0);
@@ -110,12 +110,12 @@ const ITPage = () => {
 
             {/* Hero Section */}
             <section className="relative h-screen flex flex-col items-center justify-center overflow-hidden">
-                {/* Background image */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: "url('/img/COT-Building.jpg')" }}
+                    style={{
+                        backgroundImage: `url('${import.meta.env.BASE_URL}img/COT-Building.jpg')`,
+                    }}
                 />
-                {/* Strong angled yellow gradient overlay */}
                 <div
                     className="absolute inset-0"
                     style={{
@@ -124,12 +124,11 @@ const ITPage = () => {
                     }}
                 />
 
-                {/* Logo & Title */}
                 <div ref={heroRef} className="relative z-10 flex flex-col items-center">
                     <img
-                        src="/img/COT.png"
+                        src={`${import.meta.env.BASE_URL}img/COT.png`}
                         alt="COT Logo"
-                        onClick={handleLogoClick} // 👈 secret click handler
+                        onClick={handleLogoClick}
                         className="w-40 h-40 object-contain rounded-full border border-white/30 shadow mb-4 cursor-pointer"
                     />
                     <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-white text-center opacity-80">
@@ -150,7 +149,9 @@ const ITPage = () => {
                     >
                         <div
                             className="absolute inset-0 bg-cover bg-center opacity-20 group-hover:opacity-40 transition-opacity duration-300"
-                            style={{ backgroundImage: `url('${section.image}')` }}
+                            style={{
+                                backgroundImage: `url('${section.image}')`,
+                            }}
                         />
                         <div className="relative z-10 flex h-full flex-col justify-start space-y-4 p-5 backdrop-blur-sm">
                             <h1 className="text-2xl font-bold">{section.title}</h1>

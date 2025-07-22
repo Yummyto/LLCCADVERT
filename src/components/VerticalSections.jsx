@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const collegeData = [
     {
         id: "coed",
-        logo: "/img/COED.png",
+        logo: `${import.meta.env.BASE_URL}img/COED.png`,
         title: "College of Education",
         bgColor: "bg-blue-700",
         textColor: "text-white",
@@ -18,7 +18,7 @@ const collegeData = [
     },
     {
         id: "cot",
-        logo: "/img/COT.png",
+        logo: `${import.meta.env.BASE_URL}img/COT.png`,
         title: "College of Technology",
         bgColor: "bg-yellow-400",
         textColor: "text-black",
@@ -29,7 +29,7 @@ const collegeData = [
     },
     {
         id: "cohtm",
-        logo: "/img/COHTM.png",
+        logo: `${import.meta.env.BASE_URL}img/COHTM.png`,
         title: "College of Hospitality and Management",
         bgColor: "bg-orange-500",
         textColor: "text-white",
@@ -48,7 +48,6 @@ const VerticalSections = () => {
     const refs = useRef([]);
     const lastScrollY = useRef(window.scrollY);
 
-    // Detect scroll direction and close active section on scroll down
     useEffect(() => {
         const handleScroll = () => {
             const currentScroll = window.scrollY;
@@ -62,11 +61,9 @@ const VerticalSections = () => {
         };
 
         window.addEventListener("scroll", handleScroll);
-
         return () => window.removeEventListener("scroll", handleScroll);
     }, [activeCollege]);
 
-    // Fade-in on intersection
     useEffect(() => {
         const observers = refs.current.map((ref, index) => {
             if (!ref) return null;
@@ -136,7 +133,9 @@ const VerticalSections = () => {
                                     transition={{ duration: 0.5, ease: "easeOut" }}
                                 >
                                     <h2 className="text-lg font-bold mb-2">{college.title}</h2>
-                                    <p className="underline font-semibold mb-1">Courses Offered:</p>
+                                    <p className="underline font-semibold mb-1">
+                                        Courses Offered:
+                                    </p>
                                     <ul className="list-disc list-inside text-left space-y-1">
                                         {college.courses.map((course, idx) => (
                                             <li key={idx}>{course}</li>

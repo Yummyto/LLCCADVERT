@@ -9,21 +9,21 @@ gsap.registerPlugin(ScrollTrigger);
 const bentoData = [
     {
         id: "program",
-        image: "/img/COHTM-Pics/cohtm-1.jpg",
+        image: "COHTM-Pics/cohtm-1.jpg",
         title: "Program Description",
         content:
             "The Bachelor of Science in Hospitality Management program (BSHM) is designed to provide students with the necessary knowledge, skills and attitude in the management of the different facets of Hotels, Restaurants and Resorts. The program train students for entry level jobs, supervisory and managerial positions in the hospitality industry.",
     },
     {
         id: "mission",
-        image: "/img/COHTM-Pics/cohtm-2.jpg",
+        image: "COHTM-Pics/cohtm-2.jpg",
         title: "Mission",
         content:
             "This vision is driven forward by its commitment for: profound and excellent education through less expensive tertiary education; a culture of extending necessary and essential service to the marginalized sectors Lapu-Lapu City; and knowledge acquisition, accumulation and application for global competence.",
     },
     {
         id: "goals",
-        image: "/img/COHTM-Pics/cohtm-3.jpg",
+        image: "COHTM-Pics/cohtm-3.jpg",
         title: "Goals and Objectives",
         content: "To develop future hospitality leaders by:",
         list: [
@@ -34,14 +34,14 @@ const bentoData = [
     },
     {
         id: "vision",
-        image: "/img/COHTM-Pics/cohtm-4.jpg",
+        image: "COHTM-Pics/cohtm-4.jpg",
         title: "Vision",
         content:
             "Lapu-Lapu City College shall be well-known globally as a model institution of excellence for outstanding academic and technical programs that prepare students for lifelong learning and improve economic vitality and quality of life.",
     },
     {
         id: "aims",
-        image: "/img/COHTM-Pics/cohtm-5.jpg",
+        image: "COHTM-Pics/cohtm-5.jpg",
         title: "Aims of BSHM",
         list: [
             "Creativity and Innovation",
@@ -102,7 +102,9 @@ const COHTMPage = () => {
                 {/* Background image */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center"
-                    style={{ backgroundImage: "url('/img/COHTM-Building.jpg')" }}
+                    style={{
+                        backgroundImage: `url("${import.meta.env.BASE_URL}img/COHTM-Building.jpg")`,
+                    }}
                 />
                 {/* Strong angled orange gradient overlay */}
                 <div
@@ -116,7 +118,7 @@ const COHTMPage = () => {
                 {/* Logo & Title */}
                 <div ref={heroRef} className="relative z-10 flex flex-col items-center">
                     <img
-                        src="/img/COHTM.png"
+                        src={`${import.meta.env.BASE_URL}img/COHTM.png`}
                         alt="COHTM Logo"
                         className="w-40 h-40 object-contain rounded-full border border-white/30 shadow mb-4"
                     />
@@ -138,7 +140,9 @@ const COHTMPage = () => {
                     >
                         <div
                             className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity duration-300"
-                            style={{ backgroundImage: `url('${section.image}')` }}
+                            style={{
+                                backgroundImage: `url("${import.meta.env.BASE_URL}img/${section.image}")`,
+                            }}
                         />
                         <div className="relative z-10 flex h-full flex-col justify-start space-y-4 p-5 backdrop-blur-sm bg-black/30">
                             <h1 className="text-2xl font-bold">{section.title}</h1>

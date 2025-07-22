@@ -42,7 +42,9 @@ const About = () => {
                 <BentoTilt className="bento-card group h-full w-full overflow-hidden rounded-xl border border-white/10 text-white hover:shadow-lg relative transition-all duration-300">
                     <div
                         className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-20 group-hover:opacity-40"
-                        style={{ backgroundImage: `url('/img/EDUC-Building.jpg')` }}
+                        style={{
+                            backgroundImage: `url('${import.meta.env.BASE_URL}img/EDUC-Building.jpg')`,
+                        }}
                     />
                     <div className="relative z-10 flex h-full flex-col justify-start space-y-6 p-5 backdrop-blur-sm">
                         <h1 className="text-4xl font-bold mb-2">Core Values</h1>
@@ -92,7 +94,9 @@ const About = () => {
                     <BentoTilt className="bento-card group w-full overflow-hidden rounded-xl border border-white/10 text-white hover:shadow-lg relative transition-all duration-300">
                         <div
                             className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-20 group-hover:opacity-40"
-                            style={{ backgroundImage: `url('/img/COT-Building.jpg')` }}
+                            style={{
+                                backgroundImage: `url('${import.meta.env.BASE_URL}img/COT-Building.jpg')`,
+                            }}
                         />
                         <div className="relative z-10 flex h-full flex-col justify-between p-5 backdrop-blur-sm">
                             <h1 className="text-4xl font-bold mb-4">Mission</h1>
@@ -107,7 +111,9 @@ const About = () => {
                     <BentoTilt className="bento-card group w-full overflow-hidden rounded-xl border border-white/10 text-white hover:shadow-lg relative transition-all duration-300">
                         <div
                             className="absolute inset-0 bg-cover bg-center transition-opacity duration-300 opacity-20 group-hover:opacity-40"
-                            style={{ backgroundImage: `url('/img/COHTM-Building.jpg')` }}
+                            style={{
+                                backgroundImage: `url('${import.meta.env.BASE_URL}img/COHTM-Building.jpg')`,
+                            }}
                         />
                         <div className="relative z-10 flex h-full flex-col justify-between p-5 backdrop-blur-sm">
                             <h1 className="text-4xl font-bold mb-4">Vision</h1>

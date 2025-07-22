@@ -17,10 +17,9 @@ const bootLines = [
 ];
 
 const bootSound = new Howl({
-    src: ["/audio/sounds/boo.wav"],
+    src: [`${import.meta.env.BASE_URL}audio/sounds/boo.wav`],
 });
 
-// Array of 19 image filenames for COT Days Snaps
 const galleryImages = Array.from({ length: 19 }, (_, i) => `pic-${i + 1}.jpg`);
 
 const windowContent = {
@@ -40,7 +39,7 @@ To deliver quality, hands-on technical education in industrial and computer tech
 
 We believe in learning through doing, fostering integrity, innovation, and lifelong growth in an inclusive and excellence-driven environment.`,
 
-    "COT Days Snaps": galleryImages, // special handling for gallery
+    "COT Days Snaps": galleryImages,
 };
 
 const iconMap = {
@@ -172,14 +171,17 @@ const COTPage = () => {
     if (bsod) {
         return (
             <div className="h-screen w-screen bg-blue-800 text-white flex flex-col items-center justify-center font-mono p-10">
-                <h1 className="text-3xl mb-4">*** STOP: 0x0000001E (KMODE_EXCEPTION_NOT_HANDLED)</h1>
+                <h1 className="text-3xl mb-4">
+                    *** STOP: 0x0000001E (KMODE_EXCEPTION_NOT_HANDLED)
+                </h1>
                 <p className="text-xl">
-                    A problem has been detected and Windows has been shut down to prevent damage
-                    to your computer.
+                    A problem has been detected and Windows has been shut down to prevent
+                    damage to your computer.
                 </p>
                 <p className="mt-6">
-                    If this is the first time you've seen this Stop error screen, restart your
-                    computer. If this screen appears again, follow these steps:
+                    If this is the first time you've seen this Stop error screen,
+                    restart your computer. If this screen appears again, follow these
+                    steps:
                 </p>
                 <ul className="mt-4 list-disc pl-6 space-y-2 text-left">
                     <li>Check to be sure you have adequate disk space.</li>
@@ -196,7 +198,7 @@ const COTPage = () => {
         <div
             className="h-screen w-screen overflow-hidden font-vt323 relative"
             style={{
-                backgroundImage: 'url("/img/Windows/windows-95 bg.png")',
+                backgroundImage: `url("${import.meta.env.BASE_URL}img/Windows/windows-95 bg.png")`,
                 backgroundSize: "cover",
                 backgroundRepeat: "no-repeat",
             }}
@@ -207,7 +209,7 @@ const COTPage = () => {
                 onClick={handleLogoClick}
             >
                 <img
-                    src="/img/COT.png"
+                    src={`${import.meta.env.BASE_URL}img/COT.png`}
                     alt="College of Technology Logo"
                     className="w-[200px] h-auto opacity-90"
                 />
@@ -222,12 +224,12 @@ const COTPage = () => {
                         onDoubleClick={() => openWindow(key)}
                     >
                         <img
-                            src={`/img/Windows/${iconMap[key]}`}
+                            src={`${import.meta.env.BASE_URL}img/Windows/${iconMap[key]}`}
                             alt={key}
                             className="w-12 h-12 hover:border-2 hover:border-white"
                             onError={(e) => {
                                 e.target.onerror = null;
-                                e.target.src = "/img/Windows/fallback-icon.png";
+                                e.target.src = `${import.meta.env.BASE_URL}img/Windows/fallback-icon.png`;
                             }}
                         />
                         <span className="text-base mt-1 text-center">{key}</span>
@@ -245,12 +247,12 @@ const COTPage = () => {
                             {key === "COT Days Snaps" ? (
                                 <Window
                                     title="COT Days Snaps"
-                                    icon={`/img/Windows/${iconMap[key]}`}
+                                    icon={`${import.meta.env.BASE_URL}img/Windows/${iconMap[key]}`}
                                     content={
                                         focusedImage !== null ? (
                                             <div className="flex flex-col items-center gap-4 p-2">
                                                 <img
-                                                    src={`/img/Gallery/${galleryImages[focusedImage]}`}
+                                                    src={`${import.meta.env.BASE_URL}img/Gallery/${galleryImages[focusedImage]}`}
                                                     alt={`Gallery ${focusedImage}`}
                                                     className="max-w-full rounded shadow"
                                                 />
@@ -280,7 +282,7 @@ const COTPage = () => {
                                                 {galleryImages.map((img, i) => (
                                                     <img
                                                         key={i}
-                                                        src={`/img/Gallery/${img}`}
+                                                        src={`${import.meta.env.BASE_URL}img/Gallery/${img}`}
                                                         alt={`Gallery ${i}`}
                                                         className="w-full rounded shadow cursor-pointer"
                                                         onClick={() => setFocusedImage(i)}
@@ -294,7 +296,7 @@ const COTPage = () => {
                             ) : (
                                 <Window
                                     title={key}
-                                    icon={`/img/Windows/${iconMap[key]}`}
+                                    icon={`${import.meta.env.BASE_URL}img/Windows/${iconMap[key]}`}
                                     content={content}
                                     onClose={() => closeWindow(key)}
                                 />
