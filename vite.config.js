@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: '/LLCCAD/', // 👈 MUST MATCH YOUR REPO NAME EXACTLY
   plugins: [react()],
-  base: '/LLCCAD/', // << this must match your GitHub repo name!
 })
